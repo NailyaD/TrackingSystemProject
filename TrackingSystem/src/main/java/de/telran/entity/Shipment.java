@@ -14,12 +14,12 @@ import javax.persistence.*;
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @AllArgsConstructor
 @NoArgsConstructor
-public class TrackingStatusEntity {
+public class Shipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long trackingId;
-    private String statusTitle;
-    @JoinColumn(name = "shipment_Id")
-    @Fetch(FetchMode.JOIN)
     private Long shipmentId;
+    private String shipmentTitle;
+    @JoinColumn(name = "customer_Id")
+    @Fetch(FetchMode.JOIN)
+    private Long customerId;
 }

@@ -12,8 +12,8 @@ CREATE TABLE Shipment (
                           FOREIGN KEY (customer_id) REFERENCES Customer (customer_id) ON DELETE CASCADE
 )ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-CREATE TABLE TrackingStatus (
-                          tracking_id SMALLINT UNSIGNED NOT NULL,
+CREATE TABLE Status (
+                          tracking_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
                           status_title ENUM ('Shipped', 'Delivered', 'Cancelled', 'Returned'),
                           shipment_id SMALLINT UNSIGNED,
                           PRIMARY KEY  (tracking_id),
@@ -36,7 +36,7 @@ VALUES (1, 'Shipment', 1),
        (7, 'Postal packet', 3),
        (8, 'Shipment', 4);
 
-INSERT INTO TrackingStatus (tracking_id, status_title, shipment_id)
+INSERT INTO Status (tracking_id, status_title, shipment_id)
 VALUES (1, 'Shipped', 1),
        (2, 'Delivered', 2),
        (3, 'Cancelled', 3),
