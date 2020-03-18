@@ -1,7 +1,3 @@
-DROP SCHEMA IF EXISTS tracking;
-CREATE SCHEMA tracking;
-USE tracking;
-
 CREATE TABLE Customer (
                           customer_id SMALLINT UNSIGNED NOT NULL AUTO_INCREMENT,
                           customer_name VARCHAR(45) NOT NULL,
@@ -18,7 +14,7 @@ CREATE TABLE Shipment (
 
 CREATE TABLE TrackingStatus (
                           tracking_id SMALLINT UNSIGNED NOT NULL,
-                          status_title VARCHAR(45) NOT NULL,
+                          status_title ENUM ('Shipped', 'Delivered', 'Cancelled', 'Returned'),
                           shipment_id SMALLINT UNSIGNED,
                           PRIMARY KEY  (tracking_id),
                           FOREIGN KEY (shipment_id) REFERENCES Shipment (shipment_id) ON DELETE CASCADE
@@ -49,14 +45,3 @@ VALUES (1, 'Shipped', 1),
        (6, 'Delivered', 6),
        (7, 'Shipped', 7),
        (8, 'Delivered', 8);
-
-/*Запросы*/
-/*Получить все отправления клиента*/
-
-select * from Shipment where customer_id = 1;
-
-/*Или можно так*/
-
-select c.customer_name, s.shipment_title
-from Customer as c join Shipment as s
-on c.customer_id = s.customer_id where c.customer_name = 'Ivan Ivanov';

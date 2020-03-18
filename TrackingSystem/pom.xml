@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>de.telran</groupId>
-    <artifactId>dbdemo</artifactId>
+    <artifactId>TrackingSystem</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <parent>
@@ -18,8 +18,8 @@
     <properties>
         <flyway.user>root</flyway.user>
         <flyway.password></flyway.password>
-        <flyway.schemas>school</flyway.schemas>
-        <flyway.url>jdbc:mysql://localhost:3306/school</flyway.url>
+        <flyway.schemas>tracking</flyway.schemas>
+        <flyway.url>jdbc:mysql://localhost:3306/tracking</flyway.url>
     </properties>
 
     <dependencies>
@@ -53,6 +53,17 @@
         <dependency>
             <groupId>org.flywaydb</groupId>
             <artifactId>flyway-core</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+            <optional>true</optional>
+            <version>1.18.8</version>
+        </dependency>
+        <dependency>
+            <groupId>org.modelmapper</groupId>
+            <artifactId>modelmapper</artifactId>
+            <version>2.3.0</version>
         </dependency>
     </dependencies>
 
