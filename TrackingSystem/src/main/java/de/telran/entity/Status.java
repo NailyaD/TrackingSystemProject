@@ -19,7 +19,6 @@ public class Status {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long trackingId;
     private String statusTitle;
-    @JoinColumn(name = "shipment_Id")
-    @Fetch(FetchMode.JOIN)
+    @Column(name = "shipment_id")
     private Long shipmentId;
 }

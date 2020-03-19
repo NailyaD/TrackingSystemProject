@@ -30,4 +30,20 @@ public class CustomerController {
         return customerService.createCustomer(customer);
     }
 
+    // /api/customers/{customer_id}/shipments?
+
+    //get all shipments by customer
+    // GET: /api/customers/{customer_id}/shipments
+
+    //get customer by customer_id
+    // GET: /api/customers/{customer_id}
+
+    //get tracking history of a shipment by customer
+    //GET: /api/customer/{customer_id}/shipments/{shipment_id}/statuses
+
+    //get list of shipments with current statuses for a customer
+    // Customer Name | Shipment Tile | Actual Status
+    // Ivan Petrov   | Packet        | Shipped
+    // Petr Ivanov   | Letter        | Delivered
+    //........
 }

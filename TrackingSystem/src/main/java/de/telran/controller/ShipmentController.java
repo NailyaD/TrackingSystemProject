@@ -27,8 +27,8 @@ public class ShipmentController {
         return shipmentService.createShipment(shipment);
     }
 
-    @GetMapping("/api/shipments/{id}")
-    List<Shipment> getAllShipmentsOfACustomer(@PathVariable("id") Long customerId) {
+    @GetMapping("/api/shipments/?customer_id={customer_id}")
+    List<Shipment> getAllShipmentsOfACustomer(@PathVariable("customer_id") Long customerId) {
         return shipmentService.getAllShipmentsOfACustomer(customerId);
     }
 }

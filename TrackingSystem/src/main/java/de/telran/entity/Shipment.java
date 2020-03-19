@@ -8,18 +8,26 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 
 import javax.persistence.*;
+import java.util.List;
 
-@Entity
+@Entity(name = "Shipment")
 @Data
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @AllArgsConstructor
 @NoArgsConstructor
+@Table(name = "Shipment")
 public class Shipment {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long shipmentId;
     private String shipmentTitle;
-    @JoinColumn(name = "customer_Id")
-    @Fetch(FetchMode.JOIN)
+    @Column(name = "customer_id")
     private Long customerId;
+
+    @OneToMany(
+            cascade = CascadeType.ALL,
+            orphanRemoval = true
+    )
+    @JoinColumn(name = "shipment_id")
+    private List<Status> statuses;
 }
