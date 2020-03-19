@@ -1,10 +1,11 @@
 package de.telran.controller;
 
-import de.telran.entity.CustomerEntity;
+import de.telran.entity.Customer;
 import de.telran.service.CustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
@@ -20,10 +21,13 @@ public class CustomerController {
     }
 
     @GetMapping("/api/customers")
-    List<CustomerEntity> getAllCustomers() {
+    List<Customer> getAllCustomers() {
         return customerService.getAllCustomers();
     }
 
-    //@PostMapping("/api/customers")
+    @PostMapping("/api/customers")
+    Customer createCustomer (@RequestBody Customer customer) {
+        return customerService.createCustomer(customer);
+    }
 
 }

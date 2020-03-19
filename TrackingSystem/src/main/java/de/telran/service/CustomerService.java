@@ -1,6 +1,6 @@
 package de.telran.service;
 
-import de.telran.entity.CustomerEntity;
+import de.telran.entity.Customer;
 import de.telran.repository.CustomerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -13,16 +13,15 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public CustomerEntity getCustomerById (Long customerId) {
+    public Customer getCustomerById (Long customerId) {
         return customerRepository.getOne(customerId);
     }
 
-    public List<CustomerEntity> getAllCustomers() {
+    public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
 
-    public CustomerEntity createCustomer(CustomerEntity customer) {
-        CustomerEntity savedCustomer = customerRepository.save(customer);
-        return savedCustomer;
+    public Customer createCustomer(Customer customer) {
+        return customerRepository.save(customer);
     }
 }
