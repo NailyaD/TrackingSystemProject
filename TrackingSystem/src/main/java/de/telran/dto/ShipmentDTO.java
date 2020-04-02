@@ -9,8 +9,9 @@ import java.util.List;
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class CustomerDTO {
-    private Long customerId;
-    private String customerName;
-    private List<ShipmentDTO> shipments;
+public class ShipmentDTO {
+    private Long shipmentId;
+    private String shipmentTitle;
+    //private Long customerId;
+    private List<StatusDTO> statuses;
 }

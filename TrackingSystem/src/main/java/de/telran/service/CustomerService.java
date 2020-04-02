@@ -13,10 +13,6 @@ public class CustomerService {
     @Autowired
     CustomerRepository customerRepository;
 
-    public Customer getCustomerById (Long customerId) {
-        return customerRepository.getOne(customerId);
-    }
-
     public List<Customer> getAllCustomers() {
         return customerRepository.findAll();
     }
@@ -30,3 +26,9 @@ public class CustomerService {
         return id;
     }
 }
+
+
+/*public Customer getCustomerById (Long customerId) {
+        return customerRepository.getOne(customerId);
+    }
+*/

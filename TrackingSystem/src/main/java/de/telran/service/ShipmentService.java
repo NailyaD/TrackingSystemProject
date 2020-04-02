@@ -21,7 +21,12 @@ public class ShipmentService {
         return shipmentRepository.save(shipment);
     }
 
-    public List<Shipment> getAllShipmentsOfACustomer(Long customerId) {
-        return shipmentRepository.getAllShipmentsByCustomerId(customerId);
-    }
 }
+
+/*public Shipment getShipmentById (Long shipmentId) {
+        return shipmentRepository.getOne(shipmentId);
+    }*/
+
+    /*public List<Shipment> getAllShipmentsOfACustomer(Long customerId) {
+        return shipmentRepository.getAllShipmentsByCustomerId(customerId);
+    }*/
